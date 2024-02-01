@@ -1,0 +1,12 @@
+#data-table thead{
+    height:40px;
+}
+#data-table tbody{
+    text-align: left;
+}
+#data-table tbody tr td{
+    padding: 0px 5px;
+}
+#data-table tbody tr:nth-of-type(2n){
+    background: rgba(37,99,235,0.1);
+}
