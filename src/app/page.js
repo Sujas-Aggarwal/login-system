@@ -8,6 +8,7 @@ function Login() {
     username: "",
     password: "",
   });
+  const [isAuthenticating, setIsAuthenticating] = useState(false)
   const [isVisible, setIsVisible] = useState(false);
   const [inputType, setInputType] = useState("password");
   async function formHandler(e) {
@@ -16,6 +17,7 @@ function Login() {
       return;
     }
     try {
+      setIsAuthenticating(true)
     await axios({
         method: "POST",
         url: "/api/backend",
@@ -29,6 +31,7 @@ function Login() {
           console.log(res.data.status,res.data.msg)
           alert(res.data.msg)
         }
+        setIsAuthenticating(false)
       })
     } catch (err) {
       console.log(err);
@@ -106,7 +109,7 @@ function Login() {
             type="submit"
             className="my-1 self-start hover:bg-blue-600 bg-blue-500 active:bg-blue-700 px-[20px] py-[6px] rounded-sm text-white"
           >
-            Login
+            {isAuthenticating?"Loading...":"Login"}
           </button>
         </form>
       </div>
