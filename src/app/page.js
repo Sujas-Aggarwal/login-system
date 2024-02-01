@@ -2,7 +2,7 @@
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
-function page() {
+function Login() {
   const router = useRouter();
   const [userDetails, setUserDetails] = useState({
     username: "",
@@ -114,4 +114,4 @@ function page() {
   );
 }
 
-export default page;
+export default Login;
